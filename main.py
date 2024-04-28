@@ -3,12 +3,12 @@ from tkinter import messagebox, filedialog
 
 
 class MyApp:
-    def __init__(self, root, title_font, reqular_font):
+    def __init__(self, root, title_font, regular_font):
         self.root = root
         self.root.title("Генератор")
         self.root.geometry("900x500")
         self.title_font = title_font
-        self.regular_font = reqular_font
+        self.regular_font = regular_font
 
         self.entry_var = tk.IntVar()
         self.create_widgets()
@@ -49,8 +49,9 @@ class MyApp:
                 # Open base files
                 # Every function edits and adds its task to the output file
                 # If corresponding check is checked
+                1
 
-                messagebox.showinfo("File Saved", "File has been saved successfully.")
+            messagebox.showinfo("Файл сохранен", "Файл был успешно сохранен.")
 
 
 # Create the Tkinter application window
