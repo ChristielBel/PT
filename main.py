@@ -2,7 +2,6 @@ import tkinter as tk
 from tkinter import messagebox
 import os
 import docx
-import generation.odd.generate_odd_var as odd_gen
 
 
 class MyApp:
@@ -72,7 +71,7 @@ class MyApp:
             # Every function edits and adds its task to the output file
             # If corresponding check is checked
 
-            odd_gen.generate_odd(self.check_vals, os.path.abspath(path_var), os.path.abspath(path_ans), i+1)
+            # odd_gen.generate_odd(self.check_vals, os.path.abspath(path_var), os.path.abspath(path_ans), i+1)
             i+=1
             if i < var_count:
                 # even_gen.generate_even(self.check_vals, os.path.abspath(path_var), os.path.abspath(path_ans), i+1)
