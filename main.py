@@ -30,10 +30,12 @@ class MyApp:
         checkbox_frame = tk.Frame(self.root)
         checkbox_frame.pack(pady=20)
 
-        # Create 25 checkboxes with sequential actions
-        for i in range(25):
+        # Create 17 checkboxes with sequential tasks
+        for i in range(17):
             checkbox = tk.Checkbutton(checkbox_frame, height=2, width=10, text=f"Задание {i + 1}", font=self.regular_font)
             checkbox.grid(row=i // 5, column=i % 5, sticky="w")
+
+        print(tk.BooleanVar().get())
 
         # Button to save file
         save_button = tk.Button(self.root, text="Сгенерировать", font=self.regular_font, command=self.save_file)
