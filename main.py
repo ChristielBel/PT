@@ -1,5 +1,8 @@
 import tkinter as tk
-from tkinter import messagebox, filedialog
+from tkinter import messagebox
+import os
+import docx
+import generation.odd.generate_odd_var as odd_gen
 
 
 class MyApp:
@@ -9,7 +12,7 @@ class MyApp:
         self.root.geometry("900x500")
         self.title_font = title_font
         self.regular_font = regular_font
-
+        self.check_vals = []
         self.entry_var = tk.IntVar()
         self.create_widgets()
 
@@ -32,26 +35,50 @@ class MyApp:
 
         # Create 25 checkboxes with sequential actions
         for i in range(25):
-            checkbox = tk.Checkbutton(checkbox_frame, height=2, width=10, text=f"Задание {i + 1}", font=self.regular_font)
+            val = tk.BooleanVar()
+            checkbox = tk.Checkbutton(
+                checkbox_frame,
+                height=2,
+                width=10,
+                text=f"Задание {i + 1}",
+                font=self.regular_font,
+                variable=val
+            )
+
             checkbox.grid(row=i // 5, column=i % 5, sticky="w")
+            self.check_vals.append(val)
 
         # Button to save file
         save_button = tk.Button(self.root, text="Сгенерировать", font=self.regular_font, command=self.save_file)
         save_button.pack(pady=20)
 
     def save_file(self):
-        # Dialog for saving file
-        filename = filedialog.asksaveasfilename(defaultextension=".docx", filetypes=[("Текстовые файлы", "*.docx")])
-        if filename:
-            var_count = self.entry_var.get()
+        # Delete old files if they exist
+        os.remove("Варианты.docx")
+        os.remove("Ответы.docx")
 
-            for i in range(var_count):
-                # Open base files
-                # Every function edits and adds its task to the output file
-                # If corresponding check is checked
+        # Create files for vars and answers
+        path_var = "Варианты.docx"
+        path_ans = "Ответы.docx"
+        doc1 = docx.Document()
+        doc2 = docx.Document()
+        doc1.save(path_var)
+        doc2.save(path_ans)
+
+        var_count = self.entry_var.get()
+
+        for i in range(var_count):
+            # Create base files
+            # Every function edits and adds its task to the output file
+            # If corresponding check is checked
+
+            odd_gen.generate_odd(self.check_vals, os.path.abspath(path_var), os.path.abspath(path_ans), i+1)
+            i+=1
+            if i < var_count:
+                # even_gen.generate_even(self.check_vals, os.path.abspath(path_var), os.path.abspath(path_ans), i+1)
                 1
 
-            messagebox.showinfo("Файл сохранен", "Файл был успешно сохранен.")
+        messagebox.showinfo("Файл сохранен", "Файл был успешно сохранен.")
 
 
 # Create the Tkinter application window
