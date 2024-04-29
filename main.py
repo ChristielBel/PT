@@ -32,8 +32,8 @@ class MyApp:
         checkbox_frame = tk.Frame(self.root)
         checkbox_frame.pack(pady=20)
 
-        # Create 25 checkboxes with sequential actions
-        for i in range(25):
+        # Create 17 checkboxes with sequential tasks
+        for i in range(17):
             val = tk.BooleanVar()
             checkbox = tk.Checkbutton(
                 checkbox_frame,
@@ -43,7 +43,6 @@ class MyApp:
                 font=self.regular_font,
                 variable=val
             )
-
             checkbox.grid(row=i // 5, column=i % 5, sticky="w")
             self.check_vals.append(val)
 
@@ -72,7 +71,7 @@ class MyApp:
             # If corresponding check is checked
 
             # odd_gen.generate_odd(self.check_vals, os.path.abspath(path_var), os.path.abspath(path_ans), i+1)
-            i+=1
+            i += 1
             if i < var_count:
                 # even_gen.generate_even(self.check_vals, os.path.abspath(path_var), os.path.abspath(path_ans), i+1)
                 1
