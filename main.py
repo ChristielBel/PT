@@ -14,6 +14,7 @@ class MyApp:
         self.regular_font = regular_font
         self.check_vals = []
         self.entry_var = tk.IntVar()
+        self.entry_var.set(1)
         self.create_widgets()
 
     def create_widgets(self):
@@ -42,9 +43,10 @@ class MyApp:
                 width=10,
                 text=f"Задание {i + 1}",
                 font=self.regular_font,
-                variable=val
+                variable=val,
             )
 
+            checkbox.select()
             checkbox.grid(row=i // 5, column=i % 5, sticky="w")
             self.check_vals.append(val)
 
