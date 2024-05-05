@@ -23,12 +23,14 @@ import generation.writer as writer
 task_functions = [
     task_1.generate_task,
     task_2.generate_task,
-    task_3.generate_task
+    task_3.generate_task,
+    task_4.generate_task
 ]
 ans_functions = [
     task_1.calculate_task,
     task_2.calculate_task,
-    task_3.calculate_task
+    task_3.calculate_task,
+    task_4.calculate_task
 ]
 
 

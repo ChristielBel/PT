@@ -1,3 +1,4 @@
+import math
 import random
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT as align
 
@@ -36,7 +37,7 @@ def calculate_task(target_doc_path):
     second_val /= sum_val
     third_val /= sum_val
 
-    ans1 = pow(first_val, 3)
+    ans1 = math.pow(first_val, 3)
     ans2 = 3 * first_val * second_val * third_val
 
     writer.write_text(target_doc_path,
