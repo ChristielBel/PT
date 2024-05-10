@@ -2,3 +2,5 @@
 .venv
 Варианты.docx
 Ответы.docx
+dist
+build
