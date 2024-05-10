@@ -56,7 +56,7 @@ class MyApp:
         check_var = tk.BooleanVar()
         check_all_checkbox = tk.Checkbutton(
             self.root,
-            text="Выделить/Снять выделение для всех",
+            text="Выделить все",
             font=self.regular_font,
             variable=check_var,
             command=lambda: self.check_uncheck_all(check_var)
