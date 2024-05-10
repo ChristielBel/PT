@@ -23,14 +23,18 @@ task_functions = [
     task_2.generate_task,
     task_3.generate_task,
     task_4.generate_task,
-    task_5.generate_task
+    task_5.generate_task,
+    task_6.generate_task,
+    task_7.generate_task
 ]
 ans_functions = [
     task_1.calculate_task,
     task_2.calculate_task,
     task_3.calculate_task,
     task_4.calculate_task,
-    task_5.calculate_task
+    task_5.calculate_task,
+    task_6.calculate_task,
+    task_7.calculate_task
 ]
 
 
