@@ -1,7 +1,10 @@
+import os
 import tkinter as tk
 from tkinter import messagebox
-import os
+
 import docx
+
+import generation.odd.generate_odd_var as odd_gen
 
 
 class MyApp:
@@ -13,6 +16,7 @@ class MyApp:
         self.regular_font = regular_font
         self.check_vals = []
         self.entry_var = tk.IntVar()
+        self.entry_var.set(1)
         self.create_widgets()
 
     def create_widgets(self):
@@ -41,10 +45,24 @@ class MyApp:
                 width=10,
                 text=f"Задание {i + 1}",
                 font=self.regular_font,
-                variable=val
+                variable=val,
             )
+
+            checkbox.select()
             checkbox.grid(row=i // 5, column=i % 5, sticky="w")
             self.check_vals.append(val)
+
+        # Checkbox to check/uncheck all checkboxes
+        check_var = tk.BooleanVar()
+        check_all_checkbox = tk.Checkbutton(
+            self.root,
+            text="Выделить все",
+            font=self.regular_font,
+            variable=check_var,
+            command=lambda: self.check_uncheck_all(check_var)
+        )
+        check_all_checkbox.select()
+        check_all_checkbox.pack()
 
         # Button to save file
         save_button = tk.Button(self.root, text="Сгенерировать", font=self.regular_font, command=self.save_file)
@@ -52,8 +70,11 @@ class MyApp:
 
     def save_file(self):
         # Delete old files if they exist
-        os.remove("Варианты.docx")
-        os.remove("Ответы.docx")
+        try:
+            os.remove("Варианты.docx")
+            os.remove("Ответы.docx")
+        except OSError:
+            pass
 
         # Create files for vars and answers
         path_var = "Варианты.docx"
@@ -70,13 +91,17 @@ class MyApp:
             # Every function edits and adds its task to the output file
             # If corresponding check is checked
 
-            # odd_gen.generate_odd(self.check_vals, os.path.abspath(path_var), os.path.abspath(path_ans), i+1)
+            odd_gen.generate_odd(self.check_vals, os.path.abspath(path_var), os.path.abspath(path_ans), i + 1)
             i += 1
             if i < var_count:
                 # even_gen.generate_even(self.check_vals, os.path.abspath(path_var), os.path.abspath(path_ans), i+1)
                 1
 
         messagebox.showinfo("Файл сохранен", "Файл был успешно сохранен.")
+
+    def check_uncheck_all(self, check_var):
+        for checkbox in self.check_vals:
+            checkbox.set(check_var.get())
 
 
 # Create the Tkinter application window
