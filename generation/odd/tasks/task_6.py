@@ -25,7 +25,7 @@ def generate_task(target_doc_path):
 
     replacement_values = [s, first_val, second_val, third_val]
 
-    writer.replace_placeholders_and_write_to_target(source_doc_path, target_doc_path, replacement_values)
+    writer.replace_placeholders_and_write_to_target(source_doc_path, target_doc_path, replacement_values, "+")
 
 
 def calculate_task(target_doc_path):
