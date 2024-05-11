@@ -17,14 +17,14 @@ def generate_task(target_doc_path):
     x1 = random.randint(-5, -3)
     x2 = random.randint(1, 2)
     x3 = random.randint(x2 + 1, 4)
-    px1 = round(random.uniform(0.4, 0.6), 1)
+    px1 = round(random.uniform(0.1, 0.6), 1)
     px2 = round(random.uniform(0.1, 0.3), 1)
     px3 = round(1 - px1 - px2, 1)
     x = {x1: px1, x2: px2, x3: px3}
 
     y1 = random.randint(1, 2)
     y2 = random.randint(y1 + 1, 3)
-    py1 = round(random.uniform(0.3, 0.6), 1)
+    py1 = round(random.uniform(0.1, 0.6), 1)
     py2 = round(1 - py1, 1)
     y = {y1: py1, y2: py2}
 
