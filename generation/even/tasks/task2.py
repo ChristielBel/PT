@@ -1,7 +1,6 @@
 import os
 import random
-from math import factorial
-
+from math import comb
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT as align
 
 import generation.writer as writer
@@ -37,8 +36,8 @@ def calculate_task(target_doc_path):
     global third_val
     global fourth_val
 
-    ans1 = (((factorial(third_val))/(factorial(3)*factorial(third_val-3)))*(((factorial(first_val-third_val))/(factorial(fourth_val-3)*factorial((first_val-third_val)-(fourth_val-3))))))/((factorial(first_val))/(factorial(first_val-fourth_val)*factorial(fourth_val)))
-    ans2 = ((factorial(third_val)/factorial(third_val-1))*(factorial(second_val)/(factorial(second_val-2)*factorial(2)))*(factorial(second_val-third_val)/(factorial((second_val-third_val)-2)*factorial(2))))/(factorial(first_val)/(factorial(first_val-fourth_val)*factorial(fourth_val)))
+    ans1 = (comb(third_val, 3) * comb(first_val - third_val, 2)) / comb(first_val, 5)
+    ans2 = (comb(second_val, 2) * comb(second_val - third_val, 2) * comb(third_val, 1)) / comb(first_val, 5)
 
     writer.write_text(target_doc_path,
                       "2. а: " + f'{ans1:.15f}' + "\n    б: " + f'{ans2:.15f}',

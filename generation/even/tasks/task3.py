@@ -1,6 +1,5 @@
 import os
 import random
-from math import factorial
 
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT as align
 
