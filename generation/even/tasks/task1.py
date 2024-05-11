@@ -9,6 +9,8 @@ import generation.writer as writer
 source_doc_path = os.path.dirname(os.path.abspath(__file__)) + "/texts/task_1.docx"
 
 val = 6
+
+
 def generate_task(target_doc_path):
     global val
 
@@ -17,11 +19,12 @@ def generate_task(target_doc_path):
 
     writer.replace_placeholders_and_write_to_target(source_doc_path, target_doc_path, replacement_values, "*")
 
+
 def calculate_task(target_doc_path):
     global val
 
-    ans1 = 1/(factorial(val))
-    ans2 = (factorial(val-2))/(factorial(val))
+    ans1 = 1 / (factorial(val))
+    ans2 = (factorial(val - 2)) / (factorial(val))
 
     writer.write_text(target_doc_path,
                       "1. а: " + f'{ans1:.15f}' + "\n    б: " + f'{ans2:.15f}',

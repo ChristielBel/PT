@@ -12,6 +12,7 @@ first_val = 4
 second_val = 5
 third_val = 2
 
+
 def generate_task(target_doc_path):
     global first_val
     global second_val
@@ -25,12 +26,15 @@ def generate_task(target_doc_path):
 
     writer.replace_placeholders_and_write_to_target(source_doc_path, target_doc_path, replacement_values, "*")
 
+
 def calculate_task(target_doc_path):
     global first_val
     global second_val
     global third_val
 
-    ans1 = (factorial(first_val)/(factorial(first_val-third_val)*factorial(third_val)))/(factorial(first_val+second_val)/(factorial(first_val+second_val-third_val)*factorial(third_val)))
+    ans1 = (factorial(first_val) / (factorial(first_val - third_val) * factorial(third_val))) / (
+                factorial(first_val + second_val) / (
+                    factorial(first_val + second_val - third_val) * factorial(third_val)))
 
     writer.write_text(target_doc_path,
                       "5. " + f'{ans1:.15f}',

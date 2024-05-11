@@ -12,6 +12,7 @@ second_val = 10
 third_val = 6
 fourth_val = 5
 
+
 def generate_task(target_doc_path):
     global first_val
     global second_val
@@ -29,6 +30,7 @@ def generate_task(target_doc_path):
     replacement_values = [first_val, second_val, third_val, fourth_val]
 
     writer.replace_placeholders_and_write_to_target(source_doc_path, target_doc_path, replacement_values, "*")
+
 
 def calculate_task(target_doc_path):
     global first_val

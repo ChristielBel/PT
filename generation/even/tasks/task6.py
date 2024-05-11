@@ -11,6 +11,7 @@ first_val = 0.2
 second_val = 0.3
 third_val = 0.8
 
+
 def generate_task(target_doc_path):
     global first_val
     global second_val
@@ -24,12 +25,13 @@ def generate_task(target_doc_path):
 
     writer.replace_placeholders_and_write_to_target(source_doc_path, target_doc_path, replacement_values, "*")
 
+
 def calculate_task(target_doc_path):
     global first_val
     global second_val
     global third_val
 
-    ans1 = (1-first_val)*1/3+(1-second_val)*1/3+(1-third_val)*1/3
+    ans1 = (1 - first_val) * 1 / 3 + (1 - second_val) * 1 / 3 + (1 - third_val) * 1 / 3
 
     writer.write_text(target_doc_path,
                       "6. " + f'{ans1:.15f}',
