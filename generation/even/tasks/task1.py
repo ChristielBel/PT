@@ -12,7 +12,7 @@ val = 6
 def generate_task(target_doc_path):
     global val
 
-    val = random.randint(4, 10)
+    val = random.randint(3, 10)
     replacement_values = [val]
 
     writer.replace_placeholders_and_write_to_target(source_doc_path, target_doc_path, replacement_values, "*")
