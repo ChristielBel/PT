@@ -38,7 +38,7 @@ class MyApp:
         checkbox_frame.pack(pady=20)
 
         # Create 17 checkboxes with sequential tasks
-        for i in range(17):
+        for i in range(20):
             val = tk.BooleanVar()
             checkbox = tk.Checkbutton(
                 checkbox_frame,
