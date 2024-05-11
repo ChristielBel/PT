@@ -41,7 +41,7 @@ def calculate_task(target_doc_path):
     ans2 = ((factorial(third_val)/factorial(third_val-1))*(factorial(second_val)/(factorial(second_val-2)*factorial(2)))*(factorial(second_val-third_val)/(factorial((second_val-third_val)-2)*factorial(2))))/(factorial(first_val)/(factorial(first_val-fourth_val)*factorial(fourth_val)))
 
     writer.write_text(target_doc_path,
-                      "1. а: " + f'{ans1:.15f}' + "\n    б: " + f'{ans2:.15f}',
+                      "2. а: " + f'{ans1:.15f}' + "\n    б: " + f'{ans2:.15f}',
                       "Arial", 14,
                       align.LEFT,
                       False)
