@@ -20,7 +20,7 @@ def generate_task(target_doc_path):
 
     first_val = random.randint(7, 13) * 10
     second_val = round(random.uniform(0.9, 0.95), 2)
-    third_val = random.randint(1, 3) * 5
+    third_val = random.randint(1, 2) * 5
 
     replacement_values = [first_val, second_val, third_val]
 
