@@ -14,6 +14,7 @@ source_doc_path = os.path.dirname(os.path.abspath(__file__)) + "/texts/task_10.d
 first_val = 0.005
 second_val = 200
 
+
 def generate_task(target_doc_path):
     global first_val
     global second_val
@@ -29,16 +30,17 @@ def calculate_task(target_doc_path):
     global first_val
     global second_val
 
-    l: float = sqrt(second_val * first_val * (1-first_val))
+    l: float = sqrt(second_val * first_val * (1 - first_val))
     x1: float = (0 - second_val * first_val) / l
     x2: float = (3 - second_val * first_val) / l
-    ans = laplace_func(x2)-laplace_func(x1)
+    ans = laplace_func(x2) - laplace_func(x1)
 
     writer.write_text(target_doc_path,
                       "10. " + f'{ans:.3f}',
                       "Arial", 14,
                       align.LEFT,
                       False)
+
 
 def laplace_func(x):
     return erf(x / 2 ** 0.5) / 2

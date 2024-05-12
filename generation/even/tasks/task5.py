@@ -33,8 +33,8 @@ def calculate_task(target_doc_path):
     global third_val
 
     ans = (factorial(first_val) / (factorial(first_val - third_val) * factorial(third_val))) / (
-                factorial(first_val + second_val) / (
-                    factorial(first_val + second_val - third_val) * factorial(third_val)))
+            factorial(first_val + second_val) / (
+            factorial(first_val + second_val - third_val) * factorial(third_val)))
 
     writer.write_text(target_doc_path,
                       "5. " + f'{ans:.3f}',

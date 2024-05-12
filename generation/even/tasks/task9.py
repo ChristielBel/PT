@@ -13,10 +13,11 @@ source_doc_path = os.path.dirname(os.path.abspath(__file__)) + "/texts/task_9.do
 
 val = 50
 
+
 def generate_task(target_doc_path):
     global val
 
-    val = random.randint(11,100)
+    val = random.randint(11, 100)
     replacement_values = [val]
 
     writer.replace_placeholders_and_write_to_target(source_doc_path, target_doc_path, replacement_values, "*")
@@ -27,9 +28,9 @@ def calculate_task(target_doc_path):
 
     l: float = sqrt(val * (4 / 36) * (32 / 36))
     x: float = (10 - val * (4 / 36)) / l
-    ans1 = phi(x)*(1/l)
+    ans1 = phi(x) * (1 / l)
     x2: float = (val - val * (4 / 36)) / l
-    ans2 = laplace_func(x2)-laplace_func(x)
+    ans2 = laplace_func(x2) - laplace_func(x)
 
     writer.write_text(target_doc_path,
                       "9. а: " + f'{ans1:.3f}' + "\n    б: " + f'{ans2:.3f}',
@@ -37,8 +38,10 @@ def calculate_task(target_doc_path):
                       align.LEFT,
                       False)
 
+
 def laplace_func(x):
     return erf(x / 2 ** 0.5) / 2
+
 
 def phi(x):
     if x >= 4:

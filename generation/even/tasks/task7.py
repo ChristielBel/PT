@@ -25,7 +25,7 @@ def generate_task(target_doc_path):
 
     first_val = random.randint(30, 60)
     second_val = random.randint(20, 30)
-    third_val = 100-first_val-second_val
+    third_val = 100 - first_val - second_val
     fourth_val = round(random.uniform(0.5, 0.9), 2)
     fifth_val = round(random.uniform(0.6, 0.9), 2)
     sixth_val = round(random.uniform(0.4, 0.9), 2)
