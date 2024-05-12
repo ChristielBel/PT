@@ -1,8 +1,6 @@
 import os
 import random
 from math import sqrt
-from math import pi
-from math import exp
 from scipy.special import erf
 
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT as align
@@ -43,4 +41,6 @@ def calculate_task(target_doc_path):
 
 
 def laplace_func(x):
+    if x >= 5:
+        return 0.5
     return erf(x / 2 ** 0.5) / 2

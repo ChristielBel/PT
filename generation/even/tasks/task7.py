@@ -23,8 +23,8 @@ def generate_task(target_doc_path):
     global fifth_val
     global sixth_val
 
-    first_val = random.randint(30, 60)
-    second_val = random.randint(20, 30)
+    first_val = random.randint(3, 6) * 10
+    second_val = random.randint(2, 3) * 10
     third_val = 100 - first_val - second_val
     fourth_val = round(random.uniform(0.5, 0.9), 2)
     fifth_val = round(random.uniform(0.6, 0.9), 2)

@@ -20,12 +20,9 @@ def generate_task(target_doc_path):
     global fourth_val
 
     first_val = random.randint(18, 30)
-    second_val = random.randint(8, 20)
-    third_val = random.randint(6, 10)
-    fourth_val = random.randint(5, 8)
-
-    if third_val == second_val or third_val == (second_val - 1):
-        third_val -= 1
+    second_val = random.randint(8, 15)
+    third_val = random.randint(6, 7)
+    fourth_val = random.randint(5, 6)
 
     replacement_values = [first_val, second_val, third_val, fourth_val]
 

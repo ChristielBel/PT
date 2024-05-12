@@ -40,8 +40,9 @@ def calculate_task(target_doc_path):
 
 
 def laplace_func(x):
+    if x >= 5:
+        return 0.5
     return erf(x / 2 ** 0.5) / 2
-
 
 def phi(x):
     if x >= 4:

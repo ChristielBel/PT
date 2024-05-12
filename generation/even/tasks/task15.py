@@ -1,5 +1,6 @@
 import os
 import random
+from math import exp
 
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT as align
 
@@ -15,6 +16,9 @@ def generate_task(target_doc_path):
     global first_val
     global second_val
 
+    first_val = round(random.uniform(0.001, 0.020), 3)
+    second_val = random.randint(20, 70)
+
     replacement_values = [first_val, second_val]
 
     writer.replace_placeholders_and_write_to_target(source_doc_path, target_doc_path, replacement_values, "*")
@@ -29,9 +33,11 @@ def calculate_task(target_doc_path):
 
     mx = 1 / first_val
 
+    P = 1 - (1 - (exp(-(first_val * second_val))))
     ans = "15."
     ans += f
     ans += " " * 6 + "M(X) = " + str(round(mx, 4))
+    ans += "\n" + " " * 6 + "P(T>" + str(second_val) + ") = " + str(round(P, 4))
 
     writer.write_text(target_doc_path,
                       ans,
