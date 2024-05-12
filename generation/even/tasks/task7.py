@@ -59,7 +59,7 @@ def calculate_task(target_doc_path):
         ans3 = "из пластмассы"
 
     writer.write_text(target_doc_path,
-                      "7. P(A)=" + f'{ans1:.3f}' + "\n    " + f'{ans2:.3f}' + "\n    " + ans3,
+                      "7. P(A)=" + f'{ans1:.6f}' + "\n    " + f'{ans2:.3f}' + "\n    " + ans3,
                       "Arial", 14,
                       align.LEFT,
                       False)

@@ -27,7 +27,7 @@ def calculate_task(target_doc_path):
     ans2 = (factorial(val - 2)) / (factorial(val))
 
     writer.write_text(target_doc_path,
-                      "1. а: " + f'{ans1:.3f}' + "\n    б: " + f'{ans2:.3f}',
+                      "1. а: " + f'{ans1:.10f}' + "\n    б: " + f'{ans2:.6f}',
                       "Arial", 14,
                       align.LEFT,
                       False)

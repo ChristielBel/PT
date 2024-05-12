@@ -17,7 +17,7 @@ val = 50
 def generate_task(target_doc_path):
     global val
 
-    val = random.randint(11, 100)
+    val = random.randint(30, 100)
     replacement_values = [val]
 
     writer.replace_placeholders_and_write_to_target(source_doc_path, target_doc_path, replacement_values, "*")
@@ -33,7 +33,7 @@ def calculate_task(target_doc_path):
     ans2 = laplace_func(x2) - laplace_func(x)
 
     writer.write_text(target_doc_path,
-                      "9. а: " + f'{ans1:.3f}' + "\n    б: " + f'{ans2:.3f}',
+                      "9. а: " + f'{ans1:.6f}' + "\n    б: " + f'{ans2:.6f}',
                       "Arial", 14,
                       align.LEFT,
                       False)

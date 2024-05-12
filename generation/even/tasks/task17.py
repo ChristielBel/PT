@@ -6,48 +6,38 @@ from docx.enum.text import WD_PARAGRAPH_ALIGNMENT as align
 
 import generation.writer as writer
 
-source_doc_path = os.path.dirname(os.path.abspath(__file__)) + "/texts/task_16.docx"
+source_doc_path = os.path.dirname(os.path.abspath(__file__)) + "/texts/task_17.docx"
 
-m = 100
-m1 = 100
-a = 94
-b = 106
-c = 104
+mx = 100
+a = 15
+b = 75
 
 
 def generate_task(target_doc_path):
-    global m
-    global m1
+    global mx
     global a
     global b
-    global c
 
-    m = random.randint(100, 120)
-    m1 = m
-    a = random.randint(90, 96)
-    k = abs(m - a)
-    b = k + a
-    a1 = a + 1
-    b1 = b - 1
-    c = random.randint(a1, b1)
-    replacement_values = [m, m1, a, b, c]
+    mx = random.randint(100, 120)
+    a = random.randint(10, 20)
+    b = random.randint(65, 80)
+
+    replacement_values = [mx, a, b]
 
     writer.replace_placeholders_and_write_to_target(source_doc_path, target_doc_path, replacement_values, "*")
 
 
 def calculate_task(target_doc_path):
-    global m
+    global mx
     global a
     global b
-    global c
 
-    sigma = 1
-    x2 = (b - m) / sigma
-    x1 = (c - m) / sigma
-    P = laplace_func(x2) - laplace_func(x1)
+    x1 = (b - mx) / a
+    x2 = (0 - mx) / a
+    P = laplace_func(x1) - laplace_func(x2)
 
     ans = "16. "
-    ans += "P(T>" + str(c) + ") = " + "{:.10f}".format(P)
+    ans += "P(T<" + str(b) + ") = " + "{:.10f}".format(P)
 
     writer.write_text(target_doc_path,
                       ans,

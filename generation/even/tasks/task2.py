@@ -39,7 +39,7 @@ def calculate_task(target_doc_path):
     ans2 = (comb(second_val, 2) * comb(second_val - third_val, 2) * comb(third_val, 1)) / comb(first_val, 5)
 
     writer.write_text(target_doc_path,
-                      "2. а: " + f'{ans1:.3f}' + "\n    б: " + f'{ans2:.3f}',
+                      "2. а: " + f'{ans1:.6f}' + "\n    б: " + f'{ans2:.6f}',
                       "Arial", 14,
                       align.LEFT,
                       False)

@@ -29,7 +29,7 @@ def calculate_task(target_doc_path):
     global second_val
 
     f = (" F(X) = 0, x <= 0\n"
-         "      F(X) = " + str(round(first_val, 4)) + "*e^(-x*" + str(round(first_val, 4)) + ")" + ", 0 < x <= 1\n")
+         "      F(X) = " + str(round(first_val, 4)) + "*e^(-x*" + str(round(first_val, 6)) + ")" + ", 0 < x <= 1\n")
 
     mx = 1 / first_val
 
@@ -37,7 +37,7 @@ def calculate_task(target_doc_path):
     ans = "15."
     ans += f
     ans += " " * 6 + "M(X) = " + str(round(mx, 4))
-    ans += "\n" + " " * 6 + "P(T>" + str(second_val) + ") = " + str(round(P, 4))
+    ans += "\n" + " " * 6 + "P(T>" + str(second_val) + ") = " + str(round(P, 6))
 
     writer.write_text(target_doc_path,
                       ans,
