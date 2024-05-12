@@ -6,7 +6,7 @@ from scipy.special import erf
 
 import generation.writer as writer
 
-source_doc_path = os.path.dirname(os.path.abspath(__file__)) + "/texts/task15.docx"
+source_doc_path = os.path.dirname(os.path.abspath(__file__)) + "/texts/task16.docx"
 m = 5
 sigma = 0.05
 alpha = 5.08
