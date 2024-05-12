@@ -13,6 +13,7 @@ import generation.even.tasks.task11 as task11
 import generation.even.tasks.task12 as task12
 import generation.even.tasks.task13 as task13
 import generation.even.tasks.task14 as task14
+import generation.even.tasks.task15 as task15
 
 # List for all generating functions
 task_functions = [
@@ -30,6 +31,7 @@ task_functions = [
     task12.generate_task,
     task13.generate_task,
     task14.generate_task,
+    task15.generate_task,
 ]
 ans_functions = [
     task1.calculate_task,
@@ -46,6 +48,7 @@ ans_functions = [
     task12.calculate_task,
     task13.calculate_task,
     task14.calculate_task,
+    task15.calculate_task,
 ]
 
 
