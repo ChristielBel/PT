@@ -36,7 +36,7 @@ def calculate_task(target_doc_path):
     x2 = (0 - mx) / a
     P = laplace_func(x1) - laplace_func(x2)
 
-    ans = "16. "
+    ans = "17. "
     ans += "P(T<" + str(b) + ") = " + "{:.10f}".format(P)
 
     writer.write_text(target_doc_path,
