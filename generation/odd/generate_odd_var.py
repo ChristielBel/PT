@@ -32,7 +32,10 @@ task_functions = [
     task_11.generate_task,
     task_12.generate_task,
     task_13.generate_task,
-    task_14.generate_task
+    task_14.generate_task,
+    task_15.generate_task,
+    task_16.generate_task,
+    task_17.generate_task
 ]
 ans_functions = [
     task_1.calculate_task,
@@ -48,7 +51,10 @@ ans_functions = [
     task_11.calculate_task,
     task_12.calculate_task,
     task_13.calculate_task,
-    task_14.calculate_task
+    task_14.calculate_task,
+    task_15.calculate_task,
+    task_16.calculate_task,
+    task_17.calculate_task
 ]
 
 
