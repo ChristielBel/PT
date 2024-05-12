@@ -6,7 +6,8 @@ a = Analysis(
     pathex=[],
     binaries=[],
     datas=[
-    ('generation/odd/tasks/texts/*', 'generation/odd/tasks/texts')
+    ('generation/odd/tasks/texts/*', 'generation/odd/tasks/texts'),
+    ('generation/even/tasks/texts/*', 'generation/even/tasks/texts')
     ],
     hiddenimports=[],
     hookspath=[],

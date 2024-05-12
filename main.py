@@ -4,6 +4,7 @@ from tkinter import messagebox
 
 import docx
 
+import generation.even.generate_even_var as even_gen
 import generation.odd.generate_odd_var as odd_gen
 
 
@@ -86,18 +87,18 @@ class MyApp:
 
         var_count = self.entry_var.get()
 
-        for i in range(var_count):
+        i = 0
+        while i < var_count:
             # Create base files
             # Every function edits and adds its task to the output file
             # If corresponding check is checked
-
             odd_gen.generate_odd(self.check_vals, os.path.abspath(path_var), os.path.abspath(path_ans), i + 1)
             i += 1
             if i < var_count:
-                # even_gen.generate_even(self.check_vals, os.path.abspath(path_var), os.path.abspath(path_ans), i+1)
-                1
+                even_gen.generate_even(self.check_vals, os.path.abspath(path_var), os.path.abspath(path_ans), i + 1)
+                i += 1
 
-        messagebox.showinfo("Файл сохранен", "Файл был успешно сохранен.")
+            messagebox.showinfo("Файл сохранен", "Файл был успешно сохранен.")
 
     def check_uncheck_all(self, check_var):
         for checkbox in self.check_vals:
