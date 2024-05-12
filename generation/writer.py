@@ -46,4 +46,3 @@ def replace_placeholders_and_write_to_target(source_doc_path, target_doc_path, r
 
     # Save the modified document
     target_doc.save(target_doc_path)
-
