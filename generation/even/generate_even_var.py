@@ -8,6 +8,7 @@ import generation.even.tasks.task6 as task6
 import generation.even.tasks.task7 as task7
 import generation.even.tasks.task8 as task8
 import generation.even.tasks.task9 as task9
+import generation.even.tasks.task10 as task10
 
 # List for all generating functions
 task_functions = [
@@ -20,6 +21,7 @@ task_functions = [
     task7.generate_task,
     task8.generate_task,
     task9.generate_task,
+    task10.generate_task,
 ]
 ans_functions = [
     task1.calculate_task,
@@ -31,6 +33,7 @@ ans_functions = [
     task7.calculate_task,
     task8.calculate_task,
     task9.calculate_task,
+    task10.calculate_task,
 ]
 
 def generate_even(check_values, doc_path, ans_path, num):
