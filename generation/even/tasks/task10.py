@@ -35,7 +35,7 @@ def calculate_task(target_doc_path):
     ans1 = laplace_func(x2)-laplace_func(x1)
 
     writer.write_text(target_doc_path,
-                      "10. а: " + f'{ans1:.3f}',
+                      "10. " + f'{ans1:.3f}',
                       "Arial", 14,
                       align.LEFT,
                       False)
