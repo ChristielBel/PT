@@ -98,7 +98,7 @@ class MyApp:
                 even_gen.generate_even(self.check_vals, os.path.abspath(path_var), os.path.abspath(path_ans), i + 1)
                 i += 1
 
-            messagebox.showinfo("Файл сохранен", "Файл был успешно сохранен.")
+        messagebox.showinfo("Файл сохранен", "Файл был успешно сохранен.")
 
     def check_uncheck_all(self, check_var):
         for checkbox in self.check_vals:
