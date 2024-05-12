@@ -31,10 +31,10 @@ def calculate_task(target_doc_path):
     global second_val
     global third_val
 
-    ans1 = (1 - first_val) * 1 / 3 + (1 - second_val) * 1 / 3 + (1 - third_val) * 1 / 3
+    ans = (1 - first_val) * 1 / 3 + (1 - second_val) * 1 / 3 + (1 - third_val) * 1 / 3
 
     writer.write_text(target_doc_path,
-                      "6. " + f'{ans1:.3f}',
+                      "6. " + f'{ans:.3f}',
                       "Arial", 14,
                       align.LEFT,
                       False)

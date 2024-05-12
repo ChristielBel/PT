@@ -32,10 +32,10 @@ def calculate_task(target_doc_path):
     l: float = sqrt(second_val * first_val * (1-first_val))
     x1: float = (0 - second_val * first_val) / l
     x2: float = (3 - second_val * first_val) / l
-    ans1 = laplace_func(x2)-laplace_func(x1)
+    ans = laplace_func(x2)-laplace_func(x1)
 
     writer.write_text(target_doc_path,
-                      "10. " + f'{ans1:.3f}',
+                      "10. " + f'{ans:.3f}',
                       "Arial", 14,
                       align.LEFT,
                       False)

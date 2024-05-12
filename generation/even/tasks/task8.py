@@ -29,10 +29,10 @@ def calculate_task(target_doc_path):
     global second_val
 
 
-    ans1 = comb(4,2)*((first_val/(first_val+second_val))**2)*((second_val/(first_val+second_val))**2)
+    ans = comb(4,2)*((first_val/(first_val+second_val))**2)*((second_val/(first_val+second_val))**2)
 
     writer.write_text(target_doc_path,
-                  "8. " + f'{ans1:.3f}',
+                  "8. " + f'{ans:.3f}',
                   "Arial", 14,
                   align.LEFT,
                   False)

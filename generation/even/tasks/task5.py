@@ -32,12 +32,12 @@ def calculate_task(target_doc_path):
     global second_val
     global third_val
 
-    ans1 = (factorial(first_val) / (factorial(first_val - third_val) * factorial(third_val))) / (
+    ans = (factorial(first_val) / (factorial(first_val - third_val) * factorial(third_val))) / (
                 factorial(first_val + second_val) / (
                     factorial(first_val + second_val - third_val) * factorial(third_val)))
 
     writer.write_text(target_doc_path,
-                      "5. " + f'{ans1:.3f}',
+                      "5. " + f'{ans:.3f}',
                       "Arial", 14,
                       align.LEFT,
                       False)
