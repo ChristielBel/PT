@@ -31,7 +31,7 @@ def calculate_task(target_doc_path):
             (first_val ** 2) * (1 - first_val) * second_val * (1 - second_val) ** 2)
 
     writer.write_text(target_doc_path,
-                      "4. " + f'{ans1:.15f}',
+                      "4. " + f'{ans1:.3f}',
                       "Arial", 14,
                       align.LEFT,
                       False)

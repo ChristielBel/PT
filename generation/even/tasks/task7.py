@@ -23,6 +23,9 @@ def generate_task(target_doc_path):
     global fifth_val
     global sixth_val
 
+    first_val = random.randint(30, 60)
+    second_val = random.randint(20, 30)
+    third_val = 100-first_val-second_val
     fourth_val = round(random.uniform(0.5, 0.9), 2)
     fifth_val = round(random.uniform(0.6, 0.9), 2)
     sixth_val = round(random.uniform(0.4, 0.9), 2)
@@ -56,7 +59,7 @@ def calculate_task(target_doc_path):
         ans3 = "из пластмассы"
 
     writer.write_text(target_doc_path,
-                      "7. P(A)=" + f'{ans1:.15f}' + "\n" + f'{ans2:.15f}' + "\n" + ans3,
+                      "7. P(A)=" + f'{ans1:.3f}' + "\n    " + f'{ans2:.3f}' + "\n    " + ans3,
                       "Arial", 14,
                       align.LEFT,
                       False)
