@@ -7,7 +7,7 @@ from docx.enum.text import WD_PARAGRAPH_ALIGNMENT as align
 
 import generation.writer as writer
 
-source_doc_path = os.path.dirname(os.path.abspath(__file__)) + "/texts/task_12.docx"
+source_doc_path = os.path.dirname(os.path.abspath(__file__)) + "/texts/task_13.docx"
 
 first_val = 4000
 second_val = 0.0002
