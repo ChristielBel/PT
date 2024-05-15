@@ -13,14 +13,12 @@ source_doc_path = os.path.dirname(os.path.abspath(__file__)) + "/texts/task18.do
 
 a = 1
 b = 2
-b2 = 2
 alpha = -0.5
 beta = 1.5
 
 def generate_task(target_doc_path):
     global a
     global b
-    global b2
     global alpha
     global beta
 
@@ -29,12 +27,11 @@ def generate_task(target_doc_path):
     equation = a * ((x ** 2) / 2) * (1 - (x ** 2) / 8) - 1
     solutions = sy.solve(equation, x)
     b = solutions[1].evalf()
-    b2 = b
 
     alpha/=a
     beta/=a
 
-    replacement_values = [a, b, b2, alpha, beta]
+    replacement_values = [a, round(b,4), round(b,4), round(alpha,4), round(beta,4)]
 
     writer.replace_placeholders_and_write_to_target(source_doc_path, target_doc_path, replacement_values, "!")
 
@@ -49,9 +46,9 @@ def calculate_task(target_doc_path):
     y = a * ((x ** 2) / 2) * (1 - (x ** 2) / 8)
     yy = sy.simplify(y.diff(x))
 
-    f = ("    f(X) = 0, x <= 0\n"
-         "    f(X) = " + str(yy) + ", 0 < x <=" + str(b) + "\n"
-         "    f(X)=  0, x > " + str(b))
+    f = ("f(X) = 0, x <= 0\n"
+         "      f(X) = " + str(yy) + ", 0 < x <= " + str(round(b,4)) + "\n"
+         "      f(X) =  0, x > " + str(round(b,4)))
 
     mx = sy.integrate(x * yy, (x, 0, b))
     mx2 = sy.integrate(yy * x * x, (x, 0, b))
@@ -60,12 +57,11 @@ def calculate_task(target_doc_path):
     p = func(a,beta) - func(a, alpha)
 
     ans = "18. "
-    ans += f + "\n"
-    ans += str(mx) + "\n"
-    ans += str(mx2) + "\n"
-    ans += str(dx) + "\n"
-    ans += str(sigma) + "\n"
-    ans += str(p) + "\n"
+    ans += f
+    ans += "\n" + " " * 6 + "M(X) = " + str(round(mx,4))
+    ans += "\n" + " " * 6 + "D(X) = " + str(round(dx,4))
+    ans += "\n" + " " * 6 + "σ(X) = " + str(round(sigma, 4))
+    ans += "\n" + " " * 6 + "P(" + str(round(alpha,4)) + " < " + "X < " + str(round(beta,4)) + ") = " + str(round(p,4))
 
     writer.write_text(target_doc_path,
                       ans,

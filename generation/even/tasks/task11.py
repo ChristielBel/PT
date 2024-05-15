@@ -63,8 +63,8 @@ def calculate_task(target_doc_path):
 
     f = ("    F(X) = 0, x <= 0\n"
          "    F(X) = " + str(round(f1, 4)) + ", 0 < x <= 1\n"
-                                             "    F(X) = " + str(round(f2, 4)) + ", 1 < x <= 2\n"
-                                                                                 "    F(X)=  1, x > 2")
+         "    F(X) = " + str(round(f2, 4)) + ", 1 < x <= 2\n"
+         "    F(X)=  1, x > 2")
 
     ans += '\n' + f
 
