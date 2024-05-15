@@ -1,0 +1,79 @@
+import os
+import random
+import numpy as np
+import sympy as sy
+
+from docx.enum.text import WD_PARAGRAPH_ALIGNMENT as align
+from scipy.special import erf
+from sympy import diff, symbols
+
+import generation.writer as writer
+
+source_doc_path = os.path.dirname(os.path.abspath(__file__)) + "/texts/task18.docx"
+
+a = 1
+b = 2
+b2 = 2
+alpha = -0.5
+beta = 1.5
+
+def generate_task(target_doc_path):
+    global a
+    global b
+    global b2
+    global alpha
+    global beta
+
+    a = random.randint(1, 20)
+    x = symbols('x')
+    equation = a * ((x ** 2) / 2) * (1 - (x ** 2) / 8) - 1
+    solutions = sy.solve(equation, x)
+    b = solutions[1].evalf()
+    b2 = b
+
+    alpha/=a
+    beta/=a
+
+    replacement_values = [a, b, b2, alpha, beta]
+
+    writer.replace_placeholders_and_write_to_target(source_doc_path, target_doc_path, replacement_values, "!")
+
+
+def calculate_task(target_doc_path):
+    global a
+    global b
+    global alpha
+    global beta
+
+    x = symbols('x')
+    y = a * ((x ** 2) / 2) * (1 - (x ** 2) / 8)
+    yy = sy.simplify(y.diff(x))
+
+    f = ("    f(X) = 0, x <= 0\n"
+         "    f(X) = " + str(yy) + ", 0 < x <=" + str(b) + "\n"
+         "    f(X)=  0, x > " + str(b))
+
+    mx = sy.integrate(x * yy, (x, 0, b))
+    mx2 = sy.integrate(yy * x * x, (x, 0, b))
+    dx = mx2 - mx ** 2
+    sigma = sy.sqrt(dx)
+    p = func(a,beta) - func(a, alpha)
+
+    ans = "18. "
+    ans += f + "\n"
+    ans += str(mx) + "\n"
+    ans += str(mx2) + "\n"
+    ans += str(dx) + "\n"
+    ans += str(sigma) + "\n"
+    ans += str(p) + "\n"
+
+    writer.write_text(target_doc_path,
+                      ans,
+                      "Arial", 14,
+                      align.LEFT,
+                      False)
+
+
+
+def func(k, x):
+    return k * ((x ** 2) / 2) * (1 - ((x ** 2) / 8))
