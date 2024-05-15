@@ -3,7 +3,6 @@ import random
 import sympy as sy
 
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT as align
-from scipy.special import erf
 from sympy import symbols
 from math import pi
 

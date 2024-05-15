@@ -47,7 +47,3 @@ def calculate_task(target_doc_path):
                       "Arial", 14,
                       align.LEFT,
                       False)
-
-
-def func(k, x):
-    return k * ((x ** 2) / 2) * (1 - ((x ** 2) / 8))

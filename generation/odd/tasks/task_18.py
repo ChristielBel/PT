@@ -3,7 +3,7 @@ import random
 import sympy as sy
 
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT as align
-from sympy import diff, symbols
+from sympy import symbols
 
 import generation.writer as writer
 

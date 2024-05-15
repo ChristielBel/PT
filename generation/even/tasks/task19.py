@@ -4,7 +4,6 @@ import sympy as sy
 
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT as align
 from sympy import symbols
-from sympy import sqrt
 
 import generation.writer as writer
 
@@ -41,7 +40,3 @@ def calculate_task(target_doc_path):
                       "Arial", 14,
                       align.LEFT,
                       False)
-
-
-def func(k, x):
-    return k * ((x ** 2) / 2) * (1 - ((x ** 2) / 8))

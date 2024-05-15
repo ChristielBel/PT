@@ -18,6 +18,7 @@ import generation.odd.tasks.task_16 as task_16
 import generation.odd.tasks.task_17 as task_17
 import generation.odd.tasks.task_18 as task_18
 import generation.odd.tasks.task_19 as task_19
+import generation.odd.tasks.task_20 as task_20
 
 # List for all generating functions
 task_functions = [
@@ -40,6 +41,7 @@ task_functions = [
     task_17.generate_task,
     task_18.generate_task,
     task_19.generate_task,
+    task_20.generate_task,
 ]
 ans_functions = [
     task_1.calculate_task,
@@ -61,6 +63,7 @@ ans_functions = [
     task_17.calculate_task,
     task_18.calculate_task,
     task_19.calculate_task,
+    task_20.calculate_task,
 ]
 
 
