@@ -1,10 +1,8 @@
 import os
 import random
-import numpy as np
 import sympy as sy
 
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT as align
-from scipy.special import erf
 from sympy import diff, symbols
 
 import generation.writer as writer
