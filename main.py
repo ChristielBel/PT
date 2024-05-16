@@ -12,7 +12,7 @@ class MyApp:
     def __init__(self, root, title_font, regular_font):
         self.root = root
         self.root.title("Генератор")
-        self.root.geometry("900x530")
+        self.root.geometry("900x760")
         self.root.config(bg="#ADD8E6")
         self.title_font = title_font
         self.regular_font = regular_font
@@ -39,9 +39,33 @@ class MyApp:
         separator1 = tk.Frame(self.root, height=2, bd=1, relief="groove", bg="#ADD8E6")
         separator1.pack(fill="x", pady=10)
 
+        # Label to display hints for chapters
+        chapter_hints = [
+            "Задания 1-2: Комбинаторика",
+            "Задания 3-4: Случайные события",
+            "Задания 5-7: Формула полной вероятности и формулы Байеса",
+            "Задания 8-10: Схема Бернулли",
+            "Задания 11-14: Дискретные случайные величины",
+            "Задания 15-17: Важнейшие законы распределения непрерывных",
+            "случайных величин и их свойства",
+            "Задания 18-20: Непрерывные случайные величины"
+        ]
+        for hint in chapter_hints:
+            hint_label = tk.Label(
+                self.root,
+                text=hint,
+                font=self.regular_font,
+                bg="#ADD8E6"
+            )
+            hint_label.pack(anchor="center")
+
+        # Добавляем горизонтальную линию после поля ввода
+        separator1 = tk.Frame(self.root, height=2, bd=1, relief="groove", bg="#ADD8E6")
+        separator1.pack(fill="x", pady=10)
+
         # Frame to contain the checkboxes
         checkbox_frame = tk.Frame(self.root, bg="#ADD8E6")
-        checkbox_frame.pack(pady=20)
+        checkbox_frame.pack(pady=10)
 
         for i in range(20):
             val = tk.BooleanVar()
