@@ -65,9 +65,9 @@ def calculate_task(target_doc_path):
 
     ans = "20. "
 
-    mx = sy.integrate(x * first_val * (x+2), (x, a, b)) + sy.integrate(x * first_val * (x-4)**2, (x, b, c))
-    mx2 = sy.integrate(first_val * (x+2) * x * x, (x, a, b)) + sy.integrate(x * x * first_val * (x-4)**2, (x, b, c))
-    dx = mx2 - mx ** 2
+    mx = math.fabs(sy.integrate(x * first_val * (x+2), (x, a, b)) + sy.integrate(x * first_val * (x-4)**2, (x, b, c)))
+    mx2 = math.fabs(sy.integrate(first_val * (x+2) * x * x, (x, a, b)) + sy.integrate(x * x * first_val * (x-4)**2, (x, b, c)))
+    dx = math.fabs(mx2 - mx ** 2)
     sigma = sy.sqrt(dx)
 
     if (a > alpha):
@@ -87,7 +87,7 @@ def calculate_task(target_doc_path):
         e2 = f2.subs(x, beta)
     else:
         e2 = 1
-    p = e2 - e1
+    p = math.fabs(e2 - e1)
 
     ans += f
     ans += "\n" + " " * 6 + "M(X) = " + str(round(mx, 4))
