@@ -43,7 +43,7 @@ class MyApp:
         checkbox_frame = tk.Frame(self.root, bg="#ADD8E6")
         checkbox_frame.pack(pady=20)
 
-        for i in range(19):
+        for i in range(20):
             val = tk.BooleanVar()
             checkbox = tk.Checkbutton(
                 checkbox_frame,
