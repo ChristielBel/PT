@@ -120,9 +120,13 @@ class MyApp:
         try:
             os.remove("Варианты.docx")
             os.remove("Ответы.docx")
-        except OSError as e:
+        except OSError:
             messagebox.showerror("Ошибка", f"Невозможно сгенерировать новые файлы. \n"
                                            "Пожалуйста, закройте открытые файлы и попробуйте снова.")
+            return
+        except Exception:
+            messagebox.showerror("Ошибка", f"Проихошла внутренняя ошибка. \n"
+                                           "Пожалуйста, перезагрузите программу и попробуйте снова.")
             return
 
         # Create files for vars and answers
@@ -137,24 +141,13 @@ class MyApp:
 
         i = 0
         while i < var_count:
+            # Create base files
+            # Every function edits and adds its task to the output file
+            # If corresponding check is checked
             odd_gen.generate_odd(self.check_vals, os.path.abspath(path_var), os.path.abspath(path_ans), i + 1)
-            if i < var_count - 1:  # Добавляем разрыв страницы, если это не последний вариант
-                doc1 = docx.Document(os.path.abspath(path_var))
-                doc1.add_page_break()
-                doc1.save(path_var)
-                doc2 = docx.Document(os.path.abspath(path_ans))
-                doc2.add_page_break()
-                doc2.save(path_ans)
             i += 1
             if i < var_count:
                 even_gen.generate_even(self.check_vals, os.path.abspath(path_var), os.path.abspath(path_ans), i + 1)
-                if i < var_count - 1:  # Добавляем разрыв страницы, если это не последний вариант
-                    doc1 = docx.Document(os.path.abspath(path_var))
-                    doc1.add_page_break()
-                    doc1.save(path_var)
-                    doc2 = docx.Document(os.path.abspath(path_ans))
-                    doc2.add_page_break()
-                    doc2.save(path_ans)
                 i += 1
 
         messagebox.showinfo("Файл сохранен", "Файл был успешно сохранен.")
