@@ -116,26 +116,19 @@ class MyApp:
         save_button.pack(pady=20)
 
     def save_file(self):
-        # Delete old files if they exist
+        path_var = "Варианты.docx"
+        path_ans = "Ответы.docx"
+
+        # Clear old files if they exist or create if not
         try:
-            os.remove("Варианты.docx")
-            os.remove("Ответы.docx")
+            doc = docx.Document()
+            doc.save(path_var)
+            doc = docx.Document()
+            doc.save(path_ans)
         except OSError:
             messagebox.showerror("Ошибка", f"Невозможно сгенерировать новые файлы. \n"
                                            "Пожалуйста, закройте открытые файлы и попробуйте снова.")
             return
-        except Exception:
-            messagebox.showerror("Ошибка", f"Проихошла внутренняя ошибка. \n"
-                                           "Пожалуйста, перезагрузите программу и попробуйте снова.")
-            return
-
-        # Create files for vars and answers
-        path_var = "Варианты.docx"
-        path_ans = "Ответы.docx"
-        doc1 = docx.Document()
-        doc2 = docx.Document()
-        doc1.save(path_var)
-        doc2.save(path_ans)
 
         var_count = self.entry_var.get()
 
